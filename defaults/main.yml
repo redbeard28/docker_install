@@ -1,0 +1,19 @@
+---
+
+packages_preparation:
+  - apt-transport-https
+  - ca-certificates
+  - curl
+  - software-properties-common
+  - python-pip
+  - fail2ban
+  - vim
+  - git-core
+  - libdigest-sha-perl
+  - cpanminus
+  - device-mapper-libs
+  - device-mapper-event-libs
+
+pip_dependencies:
+  - docker-pycreds
+  - dockerpty

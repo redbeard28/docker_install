@@ -3,17 +3,21 @@
   apt:
     name: "{{item}}"
     update_cache: yes
-  with_items:
-    - apt-transport-https
-    - ca-certificates
-    - curl
-    - software-properties-common
-    - python-pip
-    - fail2ban
-    - vim
-    - git-core
-    - libdigest-sha-perl
-    - cpanminus
+  with_items: "{{ packages_preparation }}"
+
+
+- name: Install pip docker library
+  pip:
+    name: docker
+
+- name: Install pip docker-compose library
+  pip:
+    name: docker-compose
+
+- name: Install pip dependencies
+  pip:
+    name: "{{ item }}"
+  with_items: "{{ pip_dependencies }}"
 
 - name: Add Docker GPG key
   apt_key: url=https://download.docker.com/linux/ubuntu/gpg
